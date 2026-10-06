@@ -163,7 +163,7 @@ Workflow:
 | i18n | **react-i18next** | Mature; Spanish default; easy to add languages |
 | Maps | **Leaflet** with configurable OSM tile URL | Lightweight, privacy-friendly |
 | Backend | **Hono on Node.js** | Small, fast, clean HTTP API usable by any future client |
-| Database | **SQLite** via **Drizzle ORM** | Single-file DB = trivial backup/restore for a volunteer host; Drizzle keeps a Postgres migration path open |
+| Database | **SQLite** (`better-sqlite3`) via **Drizzle ORM** | Single-file DB = trivial backup/restore for a volunteer host; Drizzle keeps a Postgres migration path open; `better-sqlite3` provides robust, high-performance synchronous access with prebuilt binaries across Windows, Linux Docker, and ARM (Raspberry Pi) |
 | Auth | **Better Auth** (self-hosted) | Sessions, TOTP 2FA now, passkeys later; no external service |
 | Validation | **Zod**, schemas shared client/server | Single source of truth for data shapes |
 | PDF | **Server-side PDF generation** | Consistent printable forms/schedules across devices |
