@@ -2,7 +2,7 @@
 
 > **Read this file first.** It is the source of truth for what this project is, why decisions were made, and the rules every AI agent must follow. If a decision here changes, **update this file in the same change** (see §8).
 
-_Last updated: 2026-10-05 — project status: **greenfield (no code yet)**._
+_Last updated: 2026-10-05 — project status: **greenfield (no code yet)**. Build plan & progress: [`docs/ROADMAP.md`](docs/ROADMAP.md)._
 
 ---
 
@@ -49,10 +49,10 @@ _Last updated: 2026-10-05 — project status: **greenfield (no code yet)**._
 7. **Territories** — see §7.
 8. **Meeting attendance tracking (S-88).**
 9. **Printing / PDF export** of schedules and forms (S-21, S-1 summaries, S-13, S-88, meeting schedules).
-10. **Data import** from NW Publisher / NW Scheduler / Hourglass exports (CSV/backup files) so congregations can switch easily.
-11. **Full data export** (complete backup + CSV) — congregations must never be locked in.
+10. **Full data export** (complete backup + CSV) — congregations must never be locked in.
 
 ### Explicitly out of scope for v1 (roadmap)
+- **Data import** from NW Publisher / NW Scheduler / Hourglass (deferred until real export formats are available). Keep the export format documented and stable so importers can be added later.
 - Public witnessing (cart) scheduling
 - Notifications (email / SMS / push)
 - One-click schedule **auto-fill** (v2 — see §6)
@@ -127,10 +127,12 @@ Workflow:
 1. **Language split:** all code, identifiers, comments, commit messages, and docs are **English**. Only **user-facing UI strings** are Spanish, and they live in i18n resource files.
 2. **Never hard-code UI text.** Every user-visible string goes through an i18n key (`react-i18next`). Dates, times, and numbers must be locale-aware.
 3. **Mobile-first UI.** Every screen must work well on a phone before it is considered done.
-4. **Tests are required for business logic** before a feature is "done" — at minimum: permissions/authorization, report totals and S-1/S-21 calculations, reporting-rule handling, scheduling eligibility/ranking/conflict detection, import/export round-trips.
+4. **Tests are required for business logic** before a feature is "done" — at minimum: permissions/authorization, report totals and S-1/S-21 calculations, reporting-rule handling, scheduling eligibility/ranking/conflict detection, export and backup/restore round-trips.
 5. **Never commit real publisher data.** Use fake/generated seed data only. Never put real names, addresses, or reports in tests, fixtures, screenshots, or docs.
 6. **No external network calls without explicit approval from the owner.** This includes analytics, telemetry, error-reporting SaaS, CDNs, remote fonts/icons, and third-party APIs. All assets are bundled. The only approved exception is the configurable map tile server (§7).
 7. **Keep this file updated** whenever an architecture decision, scope item, or rule changes.
+8. **Work from the roadmap.** The build plan lives in [`docs/ROADMAP.md`](docs/ROADMAP.md). Each agent session implements **one sub-phase** (e.g. `0A`), stays inside its scope, ticks the completed checkboxes, and leaves the repo green (lint, typecheck, tests, build). Do not start the next sub-phase unasked.
+9. **Spanish UI text** should use the terminology congregations already use in Spanish-language publications and forms (e.g. *publicador*, *precursor regular*, *informe de predicación*, *superintendente de grupo*). The owner reviews all Spanish strings; flag any term you are unsure of in your session summary.
 
 ---
 
@@ -176,7 +178,7 @@ Workflow:
 ### Suggested repo layout (to be created)
 ```
 /apps/web        React PWA
-/apps/server     Hono API, auth, PDF generation, import/export
+/apps/server     Hono API, auth, PDF generation, export & backup/restore
 /packages/shared Zod schemas, types, permission definitions, reporting rules, i18n keys
 /packages/db     Drizzle schema & migrations
 /docs            English documentation (install, backup, upgrade, user guides)
