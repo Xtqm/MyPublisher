@@ -21,14 +21,14 @@ Every sub-phase must finish with:
 ## Phase 0 — Foundation
 
 ### 0A — Monorepo & app skeletons
-- [ ] pnpm workspace: `apps/web`, `apps/server`, `packages/shared`, `packages/db`, `docs/`
-- [ ] Shared tooling: TypeScript (strict, shared base config), ESLint, Prettier, Vitest; root scripts `dev`, `build`, `lint`, `typecheck`, `test`, `format`
-- [ ] `apps/server`: Hono on Node, `/api/v1` router, `GET /api/v1/health`, env config validated with Zod, structured logging
-- [ ] `packages/db`: Drizzle + SQLite, migration scripts, DB file path from env (default `./data/`), one placeholder table + migration
-- [ ] `apps/web`: Vite + React, TanStack Router + Query, Tailwind + shadcn/ui, react-i18next (`es` default, locale-aware date/number helpers), mobile-first app shell (header + bottom nav on phones), self-hosted font, home page that calls the health endpoint
-- [ ] PWA manifest + service worker registration (no offline caching logic yet)
-- [ ] Dev proxy so web → server works with one `pnpm dev`
-- [ ] `.gitignore`, `.editorconfig`, `.nvmrc`, AGPL-3.0 `LICENSE`, short English `README.md` (dev setup)
+- [x] pnpm workspace: `apps/web`, `apps/server`, `packages/shared`, `packages/db`, `docs/`
+- [x] Shared tooling: TypeScript (strict, shared base config), ESLint, Prettier, Vitest; root scripts `dev`, `build`, `lint`, `typecheck`, `test`, `format`
+- [x] `apps/server`: Hono on Node, `/api/v1` router, `GET /api/v1/health`, env config validated with Zod, structured logging
+- [x] `packages/db`: Drizzle + SQLite, migration scripts, DB file path from env (default `./data/`), one placeholder table + migration
+- [x] `apps/web`: Vite + React, TanStack Router + Query, Tailwind + shadcn/ui, react-i18next (`es` default, locale-aware date/number helpers), mobile-first app shell (header + bottom nav on phones), self-hosted font, home page that calls the health endpoint
+- [x] PWA manifest + service worker registration (no offline caching logic yet)
+- [x] Dev proxy so web → server works with one `pnpm dev`
+- [x] `.gitignore`, `.editorconfig`, `.nvmrc`, AGPL-3.0 `LICENSE`, short English `README.md` (dev setup)
 
 ### 0B — PDF, Docker, CI, seed data
 - [ ] Server-side PDF service: pick a library (no headless browser if avoidable; must bundle fonts with Spanish accents) and add `GET /api/v1/dev/sample.pdf`

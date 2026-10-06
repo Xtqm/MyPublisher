@@ -1,0 +1,53 @@
+{
+  "app": {
+    "name": "MyPublisher",
+    "tagline": "Gestión congregacional todo en uno"
+  },
+  "nav": {
+    "home": "Inicio",
+    "reports": "Informes",
+    "schedules": "Programas",
+    "publishers": "Publicadores"
+  },
+  "health": {
+    "title": "Estado del sistema",
+    "status": "Estado de la API",
+    "connected": "Conectado",
+    "disconnected": "Desconectado",
+    "database": "Base de datos",
+    "dbConnected": "Conectada (SQLite)",
+    "dbDisconnected": "Desconectada",
+    "version": "Versión",
+    "environment": "Entorno",
+    "lastChecked": "Última comprobación",
+    "checking": "Comprobando estado del sistema...",
+    "error": "Error al conectar con el servidor",
+    "retry": "Reintentar"
+  },
+  "pages": {
+    "home": {
+      "title": "Panel principal",
+      "welcome": "Bienvenido a MyPublisher",
+      "description": "Sistema integral de gestión de congregación: publicadores, informes, programas de reuniones y territorios."
+    },
+    "reports": {
+      "title": "Informes de predicación",
+      "description": "Registro y gestión de informes mensuales de los publicadores y precursores.",
+      "placeholder": "Módulo de informes de predicación (Fase 3)."
+    },
+    "schedules": {
+      "title": "Programas de reuniones",
+      "description": "Programación de la reunión Vida y Ministerio, reunión de fin de semana y asignaciones de servicio.",
+      "placeholder": "Módulo de programas de reuniones y tareas (Fases 4 y 5)."
+    },
+    "publishers": {
+      "title": "Publicadores y grupos",
+      "description": "Directorio de publicadores, nombramientos teocráticos y grupos para el servicio del campo.",
+      "placeholder": "Módulo de publicadores y grupos (Fase 2)."
+    }
+  },
+  "common": {
+    "loading": "Cargando...",
+    "refresh": "Actualizar"
+  }
+}
