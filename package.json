@@ -1,0 +1,24 @@
+{
+  "name": "mypublisher-monorepo",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "concurrently -n \"server,web\" -c \"blue,green\" \"pnpm --filter @mypublisher/server dev\" \"pnpm --filter @mypublisher/web dev\"",
+    "build": "pnpm --filter @mypublisher/shared build && pnpm --filter @mypublisher/db build && pnpm --filter @mypublisher/server build && pnpm --filter @mypublisher/web build",
+    "lint": "eslint .",
+    "typecheck": "pnpm -r --stream typecheck",
+    "test": "vitest run",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "concurrently": "^10.0.5",
+    "eslint": "^10.12.0",
+    "prettier": "^3.9.9",
+    "typescript": "^5.8.2",
+    "typescript-eslint": "^8.71.1",
+    "vitest": "^5.0.3"
+  }
+}
